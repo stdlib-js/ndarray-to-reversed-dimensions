@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,16 +16,22 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { ndarray } from '@stdlib/types/ndarray';
+import { Collection } from '@stdlib/types/array';
 
 /**
-* Return a new ndarray where the order of elements of an input ndarray along specified dimensions is reversed.
+* Returns a new ndarray where the order of elements of an input ndarray along specified dimensions is reversed.
 *
-* @module @stdlib/ndarray-to-reversed-dimensions
+* @param x - input array
+* @param dims - indices of dimensions to reverse
+* @returns output array
 *
 * @example
 * var array = require( '@stdlib/ndarray-array' );
-* var toReversedDimensions = require( '@stdlib/ndarray-to-reversed-dimensions' );
 *
 * var x = array( [ [ 1.0, 2.0 ], [ 3.0, 4.0 ], [ 5.0, 6.0 ] ] );
 * // returns <ndarray>[ [ 1.0, 2.0 ], [ 3.0, 4.0 ], [ 5.0, 6.0 ] ]
@@ -33,12 +39,9 @@
 * var y = toReversedDimensions( x, [ 0, 1 ] );
 * // returns <ndarray>[ [ 6.0, 5.0 ], [ 4.0, 3.0 ], [ 2.0, 1.0 ] ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function toReversedDimensions<T extends ndarray = ndarray>( x: T, dims: Collection<number> ): T;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = toReversedDimensions;
